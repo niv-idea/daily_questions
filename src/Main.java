@@ -1,15 +1,33 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+import java.util.Arrays;//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+    public int removeElement1(int[] nums, int val) {
+        int k = 0; // Counter for the elements that are not equal to val
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != val) {
+                nums[k++] = nums[i]; // Move valid elements to the front
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+            }
         }
+
+        Arrays.sort(nums, 0, k); // Sort only the part that contains the remaining elements
+        for (int i = 0; i < k; i++) {
+            System.out.print(nums[i] + " ");
+        }
+        return k; // Return the number of remaining elements
+    }
+
+    public static void printArr(int[] nums){
+        for(int i=0; i< nums.length; i++){
+            System.out.print(nums[i]+" ");
+        }
+        System.out.println();
+    }
+    public static void main(String[] args) {
+        int[] nums={3,2,2,3};
+        int val=3;
+
+        Main main=new Main();
+        main.removeElement1(nums,val);
     }
 }

@@ -19,7 +19,8 @@ public class DuplicateElements {
             }
 
             if (count <= 2) {
-                nums[index++] = nums[i];
+                nums[index] = nums[i];
+                index ++;
             }
         }
 
@@ -50,7 +51,8 @@ public class DuplicateElements {
 
         for (int i = 2; i < nums.length; i++) {
             if (nums[i] != nums[index - 2]) {
-                nums[index++] = nums[i];
+                nums[index] = nums[i];
+                index++;
             }
         }
 
@@ -59,7 +61,7 @@ public class DuplicateElements {
 
     public static void main(String[] args){
         int[] nums={1,1,1,2,2,3};
-        int newLength = removeDuplicates1(nums);
+        int newLength = removeDuplicates(nums);
 
 
         System.out.println("New length: " + newLength);
